@@ -1,0 +1,52 @@
+query GetAllJobs{
+  jobs {
+    _id
+    title
+    description
+    company
+    url
+  }
+}
+
+mutation CreateJobListing($input:CreateJobListingInput!) {
+  createJobListing(input:$input){
+    _id
+    title
+    description
+    company
+    url
+  }
+}
+
+{
+  "input": {
+    "title": "Software Development Engineer - I",
+    "description": "lorem ipsum",
+    "company": "google",
+    "url": "www.google.com"
+  }
+}
+
+query GetJob($id:ID!) {
+  job(id:$id) {
+    _id
+    title
+    description
+    url
+    company
+  }
+}
+
+{
+  "id": "69cfdbb45e5f5787df05a389"
+}
+
+mutation DeleteQuery($id: ID!) {
+  deleteJobListing(id:$id){
+    deleteJobId
+  }
+}
+
+{
+  "id": "69cfdbb45e5f5787df05a389"
+}
